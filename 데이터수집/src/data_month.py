@@ -10,6 +10,6 @@ month_before = datetime.datetime.now()-relativedelta(months=1)
 month_before = month_before.date()
 
 data = fdr.DataReader(code,month_before,today) # 종목코드 입력
-data.to_csv('../data/data_month_' + code + '.csv')
-csv_data = pd.read_csv('../data/data_month_' + code + '.csv')
-json_data = csv_data.to_json('../data/data_month_' + code + '.json',orient='records')
+data = data.reset_index()
+js = data.to_json(orient='records',force_ascii=False)
+print(js)
