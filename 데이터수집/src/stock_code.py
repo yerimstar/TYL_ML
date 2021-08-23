@@ -1,7 +1,7 @@
 import requests
 import json
 import csv
-f = open('stock_code.csv','w',encoding='utf-8',newline='')
+f = open('../data/stock_code.csv', 'w', encoding='utf-8', newline='')
 wr = csv.writer(f)
 url = "http://data.krx.co.kr/comm/bldAttendant/getJsonData.cmd?bld=dbms/MDC/STAT/standard/MDCSTAT01901&mktId=ALL&share=1&csvxls_isNo=false"
 response = requests.post(url)
