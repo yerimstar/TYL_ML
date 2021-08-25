@@ -1,6 +1,7 @@
 import json
 from pykrx import stock
 from datetime import datetime
+import time
 
 def get_ohlcv(today):
     df_stock = stock.get_market_ohlcv_by_ticker(date=today,market="ALL")
@@ -25,4 +26,5 @@ def fmain():
         if hour == 15 and minute == 30:
             break
         get_ohlcv(today)
+        time.sleep(5)
 fmain()
