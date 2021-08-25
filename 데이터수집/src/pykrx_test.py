@@ -7,10 +7,7 @@ def get_ohlcv(today):
     df_stock = stock.get_market_ohlcv_by_ticker(date=today,market="ALL")
     df_stock = df_stock.reset_index()
     df_stock.columns = ['code','open','high','low','close','volume','amount','rate']
-    js_stock = df_stock.to_json(orient='records',force_ascii=False)
-    js_file = open("../data/stock_data.json", "w", encoding='utf-8')
-    json.dump(js_stock,js_file,ensure_ascii = False)
-    js_file.close()
+    df_stock.to_json('../data/stock_data.json',orient='index')
 
 def fmain():
     now = str(datetime.now())
